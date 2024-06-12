@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+{% extends "layout.html" %}
+{% block content %}
+    <h2>Marques</h2>
+    <div class="album py-5 bg-light">
+        <div class="container">
+            <div class="row row-cols-1 row-cols-sm-1 row-cols-md-3 g-3">
+                {% for marque in liste_marques %}
+                    <div class="col">
+                        <div class="card shadow-sm equal-height">
+                            <div class="image-container">
+                                <img loading="lazy" src="{{ marque.image }}" alt="{{ marque.nom_marque }}">
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text">
+                                    {{ marque.nom_marque }}
+                                </p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <a href="{{ url_for('produits_marques', id_marques=marque.id_marque) }}"
+                                           class="btn btn-dark">View</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+</body>
+</html>

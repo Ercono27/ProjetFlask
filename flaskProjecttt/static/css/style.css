@@ -1,0 +1,54 @@
+h2 {
+    color: #0000AA;
+    margin-left: 50px;
+    padding-top: 20px
+}
+
+.card.equal-height {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.card-body {
+    flex: 1;
+}
+
+.image-container {
+    width: 100%;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.image-container img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.background-image {
+    background-image: url("../images/wickedbackground.svg");
+    background-size: cover;
+}
+
+.carousel-image {
+    mix-blend-mode: multiply;
+}
+
+.carousel-item {
+    position: relative;
+    text-align: center;
+}
+
+.btn-group, .carousel-item h5 {
+    width: 25%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.carousel-item h5 {
+    margin-top: 10px; /* Espacement au-dessus du texte */
+}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body class="background-image">
+{% extends "layout.html" %}
+{% block content %}
+    <h2>Page d'accueil</h2>
+    <button class="btn btn-primary">Un bouton</button>
+    <div id="carouselExampleInterval" class="carousel slide mx-auto" data-bs-ride="carousel"
+         style="border: #212529 solid 3px; width: 60%; border-radius: 1%; padding: 30px">
+        <div class="carousel-inner">
+            {% for produit in produits %}
+                <div class="carousel-item {% if loop.first %}active{% endif %}">
+                    <img src="{{ produit.image }}" class="d-block mx-auto carousel-image"
+                         style="max-height: 400px; max-width: 100%;" alt="{{ produit.nom_produit }}">
+                    <h5>{{produit.nom_marque+" "+produit.nom_produit }}</h5>
+                    <div class="btn-group d-flex justify-content-center">
+                        <a href="{{ url_for('produit', id_produit=produit.id_produit) }}" class="btn btn-dark">Voir le produit</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval"
+            data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval"
+            data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+    </div>
+{% endblock content %}
+</body>
+</html>

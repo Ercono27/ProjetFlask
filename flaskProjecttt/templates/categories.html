@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+{% extends "layout.html" %}
+{% block content %}
+    <h2>Catégorie</h2>
+    <div class="album py-5 bg-light">
+        <div class="container">
+            <div class="row row-cols-1 row-cols-sm-1 row-cols-md-3 g-3">
+                {% for categorie in liste_cat : %}
+                    <div class="col">
+                        <div class="card shadow-sm equal-height">
+                            <img loading="lazy" src="{{ categorie.image }}" alt="{{ categorie.nom_cat }}"/>
+                            <div class="card-body">
+                                <p class="card-text">
+                                    {{ categorie.nom_categorie }}
+                                </p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <a href="{{ url_for('produits_categories', id_categories=categorie.id_categorie) }}"
+                                           class="btn btn-dark">View</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                {% endfor %}
+
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+</body>
+</html>

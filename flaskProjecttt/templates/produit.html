@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+{% extends "layout.html" %}
+{% block content %}
+<div class="card mb-3">
+    <div class="row g-0">
+        <div class="">
+            <h3 class="card-title">{{ produit.nom_marque }} {{ produit.nom_produit }}</h3>
+            <div style="display: flex">
+                <img src="{{ produit.image }}" alt="{{ produit.nom_produit }}"
+                     style="max-height: 2000px; max-width: 2000px;margin: 20px;margin-left: 80px">
+                <p class="card-text lead"
+                   style="font-size: 15px;text-align: justify;margin-top: 5%;width: 35%">{{ produit.description }}</p>
+                <div style="border: #666666;margin: 1% 1% 1% 5%;border: 1px;padding: 3%;border-radius: 3%;background-color: #d9eef4;text-align: center">
+                    <div style="padding: 20% 0 20% 0;font-size: 30px;font-weight: bolder;color: #093782 "></div>
+                    <div style="display: flex;justify-content: center;align-items:center ">
+                        <div>
+                            <label for="quantite" class="form-label">Quantité : </label>
+                        </div >
+                        <div style="padding: 20% 0 20% 0">
+                            <select class="form-control" id="quantite" style="height: 45px;width: 45px">
+                                {% for i in range(1, 11) %}
+                                    <option value="{{ i }}">{{ i }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                    <div style="padding: 20% 0 20% 0">
+                        {% if produit.stock > 0 %}
+                            <button id="btnAjoutPanier" style="font-family: 'system-ui';border: none;font-weight: bold;background-color: #ff9103;border-radius: 5px;"> <i class="bi bi-basket3"></i> Ajouter au panier</button>
+                        {% else %}
+                            Rupture de stock
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+</body>
+</html>
